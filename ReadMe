@@ -1,0 +1,17 @@
+This implementation was inspired by Numenta HTM School videos, papers and by the book "On Intelligence" by Jeff Hawkins
+
+To see the visualization just crate a new project in Unity and put the Assets folder I uploaded in the project's Assets folder.
+The Input neurons are the ones that forms a one neuron thick layer, they can assume three colors: black is the color of all the 
+neurons in the receptive fields of the coloumn you selected (find the AI-Animator component under the AI GameObject and there you will 
+find a changable parameter you can use to choose the coloumn), green is the sum of the receptive fields of active coloumns in the spatial 
+pooler, blue is the colors of the active neurons (which gets activated when their collider is triggered by the collider of an object
+which in this case are sprite, sprite(1) and sprite(2)). the blue color will most likely not appear because it will be "covered" by
+the green or black of the receptive fields.
+The Spatial Pooler is the one formed by a stack of neurons. It has proximal connections to the input layer and distal connections between 
+neurons within its own coloumns. The neurons in this layer can assume three colours: blue when it is active but not predicted,
+red when it is predicted but not active and yellow when it is both predicted and active. 
+In the concole you can find some informations printed in each time step: if a coloumn burst the message "Bursting" will be printed and at 
+each time step a summary will be printed with informations about how many neurons were yellow (Right), how many neurons almost got yellow
+but did not surpass the prediction threshold (Almost), the number of neurons that were mistakenly predicted and were visualized 
+as red (Wrong), and finally the number of connections that were redirected to the active neurons in the learning process (only some part 
+of the connections are redirected, most are either strengthen or weakend). 
